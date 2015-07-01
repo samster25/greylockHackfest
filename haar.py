@@ -8,7 +8,7 @@ signal = np.sin(4*np.pi*np.linspace(0,1,data_len)) + 0.0*np.random.randn(data_le
 
 def haar(signal,sig_digits):
 	new_signal = np.zeros(len(signal))
-	print int(np.log2(len(signal)))
+	# print int(np.log2(len(signal)))
 	for level in xrange(int(np.log2(len(signal)))):
 		new_signal_len = len(signal)/2
 		new_signal = np.zeros(new_signal_len)
@@ -47,8 +47,10 @@ def haar_transform(signal):
 	new_data = haar(interprolate(signal,round_power_two(len(signal))),HAAR_COEFF)
 	dmax=np.amax(new_data)
 	dmin=np.amin(new_data)
+	if (dmax==dmin):
+		return np.zeros(len(new_data))
  	return 2*((new_data - dmin)*1.0/(dmax - dmin))-1
 	
-plt.plot(haar_transform(signal))
-plt.show()
+# plt.plot(haar_transform(signal))
+# plt.show()
 

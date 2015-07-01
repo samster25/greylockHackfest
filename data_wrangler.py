@@ -22,6 +22,7 @@ __copyright__   = "BSD license"
 DATA_DIR = "./uWave/"
 
 def extract_data():
+	count = 0
 	dataset = dict()
 	for i in range(1,9):
 		dataset[i] = []
